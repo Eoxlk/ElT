@@ -13,7 +13,7 @@ export default () => {
             <FormInput
                 title="Length for filenames"
                 keyboardType="numeric"
-                placeholder="8"
+                placeholder="0-9"
                 value={storage.nameLength.toString()}
                 onChange={(v: string) => storage.nameLength = v.replace(/[^0-9]/g, "")}
             />
