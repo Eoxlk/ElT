@@ -17,6 +17,13 @@ export default () => {
                 value={storage.nameLength.toString()}
                 onChange={(v: string) => storage.nameLength = v.replace(/[^0-9]/g, "")}
             />
+            <FormInput
+                title="Characters to use for filenames"
+                keyboardType="default"
+                placeholder="9"
+                value={storage.nameChars.toString()}
+                onChange={(v: string) => storage.nameChars = v.replace(/^[a-zA-Z0-9]+/$, "")}
+                />
         </RN.ScrollView>
     )
 }
