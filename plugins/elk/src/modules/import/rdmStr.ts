@@ -1,4 +1,2 @@
 import { storage } from "@vendetta/plugin";
-
-const chars = storage.nameChars
-export default (len: number) => [...crypto.getRandomValues(new Uint8Array(len)).map(n => n % chars.length)].map(n => chars.charAt(n)).join('');
+export default (len: number) => [...crypto.getRandomValues(new Uint8Array(len)).map(n => n % storage.nameChars.length)].map(n => storage.nameChars.charAt(n)).join('');

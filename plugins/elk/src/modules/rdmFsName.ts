@@ -2,9 +2,6 @@ import { findByProps } from "@vendetta/metro";
 import { before } from "@vendetta/patcher";
 import { storage } from "@vendetta/plugin";
 import randomString from "./import/rdmStr";
-
-storage.nameLength ??= 8;
-
 const uploadModule = findByProps("uploadLocalFiles");
 
 export const onUnload = before("uploadLocalFiles", uploadModule, (args) => { 
