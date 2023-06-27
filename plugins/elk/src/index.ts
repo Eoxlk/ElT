@@ -1,1 +1,1 @@
-import './modules/randomizeFileName';
+import './modules/rndFsName';
