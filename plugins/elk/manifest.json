@@ -1,10 +1,10 @@
 {
-    "name": "Template Plugin",
-    "description": "A plugin for use as a template.",
+    "name": "Elk's cluster of fucks",
+    "description": "Clusterfuck",
     "authors": [
         {
-            "name": "You!",
-            "id": "YOUR_ID_HERE"
+            "name": "Elk",
+            "id": "234061409875525632"
         }
     ],
     "main": "src/index.ts",
