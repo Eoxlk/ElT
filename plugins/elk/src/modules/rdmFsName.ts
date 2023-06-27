@@ -1,23 +1,23 @@
-import { findByProps } from '@vendetta/metro';
-import { before } from '@vendetta/patcher';
-import { storage } from '@vendetta/plugin';
-import randomString from './import/rdmStr';
-let fileUploadModule = findByProps('uploadLocalFiles');
+import { findByProps } from "@vendetta/metro";
+import { before } from "@vendetta/patcher";
+import { storage } from "@vendetta/plugin";
+import randomString from "./import/rdmStr";
 
+// Default settings
 storage.nameLength ??= 8;
 
-export const onUnload = before('uploadLocalFiles', fileUploadModule, files => {
-  if (!files[0]) return;
+const uploadModule = findByProps("uploadLocalFiles");
 
-  let { fileItems } = files[0],
-    parsedNameLength = parseInt(storage.nameLength),
-    length = isNaN(parsedNameLength) ? 8 : parsedNameLength;
-
-  for (const index of fileItems) {
-    let extensionIndex = index.filename.lastIndexOf('.'),
-      fileExtension = extensionIndex !== -1 ? index.filename.slice(extensionIndex) : '',
-      randomFileName = randomString(length);
-    index.filename = randomFileName + fileExtension;
-    if (index.item) index.item.filename = randomFileName + fileExtension;
+export const onUnload = before('uploadLocalFiles', uploadModule, args => {
+  const { items } = args[0];
+  if (!items) return;
+  const rawLength = parseInt(storage.nameLength);
+  const length = isNaN(rawLength) ? 8 : rawLength;
+  for (const i of items) {
+    const extIdx = i.filename.lastIndexOf('.');
+    const ext = extIdx !== -1 ? i.filename.slice(extIdx) : '';
+    const name = randomString(length);
+    i.filename = name + ext;
+    if (i.item) i.item.filename = name + ext;
   }
 });
