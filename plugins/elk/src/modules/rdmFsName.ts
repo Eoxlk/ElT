@@ -21,3 +21,5 @@ export const onUnload = before('uploadLocalFiles', fileUploadModule, files => {
     if (index.item) index.item.filename = randomFileName + fileExtension;
   }
 });
+
+export { default as settings } from "../Settings";
