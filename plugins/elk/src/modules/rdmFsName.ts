@@ -6,9 +6,8 @@ const uploadModule = findByProps("uploadLocalFiles");
 
 export const onUnload = before('uploadLocalFiles', uploadModule, files => {
   if (!files[0]) return;
-  const { items: fileList } = files[0];
-
-  const rawNameLength = parseInt(storage.nameLength),
+  const { items: fileList } = files[0],
+    rawNameLength = parseInt(storage.nameLength),
     fileNameLength = isNaN(rawNameLength) ? 8 : rawNameLength;
 
   for (const file of fileList) {
