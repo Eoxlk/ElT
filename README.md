@@ -1,2 +1,5 @@
-# Vendetta Plugins!!
-This repo contains plugins for [Vendetta](https://github.com/vendetta-mod/Vendetta)
+# A Vendetta Plugin
+This repo contains A plugin for [Vendetta](https://github.com/vendetta-mod/Vendetta)
+
+
+### I mainly made this for myself, don't expect anything
