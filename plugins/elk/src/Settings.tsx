@@ -22,8 +22,8 @@ export default () => {
                 keyboardType="default"
                 placeholder="9"
                 value={storage.nameChars.toString()}
-                onChance={(v: string) => storage.nameChars = v.replace(/^[a-zA-Z0-9]+/$, "")}
-            />
+                onChange={(v: string) => storage.nameChars = v.replace(/^[a-zA-Z0-9]+/$, "")}
+                />
         </RN.ScrollView>
     )
 }
