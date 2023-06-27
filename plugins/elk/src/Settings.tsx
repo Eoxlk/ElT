@@ -22,7 +22,7 @@ export default () => {
                 keyboardType="default"
                 placeholder="a-z A-z 0-9"
                 value={storage.nameChars.toString()}
-                onChange={(v: string) => storage.nameChars = v.replace(/^[a-zA-Z0-9]+$/, "")}
+                onChange={(v: string) => storage.nameChars = v.replace(/[^a-zA-Z0-9]+$/, "")}
             />
         </RN.ScrollView>
     )
