@@ -1,4 +1,4 @@
 import { storage } from '@vendetta/plugin';
+storage.nameChars ??= "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
 
-let chars = storage.nameChars !== undefined ? storage.nameChars : "abcdefghijklmnopqrstuvwxyz";
-export default (len: number) => [...crypto.getRandomValues(new Uint8Array(len)).map(n => n % chars.length)].map(n => chars.charAt(n)).join('');
+export default (lenght: number, characters = storage.nameChars) => [...crypto.getRandomValues(new Uint8Array(lenght)).map(n => n % characters.length)].map(n => characters.charAt(n)).join('');
