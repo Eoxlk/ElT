@@ -4,13 +4,11 @@ import { storage } from "@vendetta/plugin";
 import randomString from "./import/rdmStr";
 const uploadModule = findByProps("uploadLocalFiles");
 
-storage.nameLength ??= 8;
-
 export const onUnload = before('uploadLocalFiles', uploadModule, files => {
   if (!files[0]) return;
   const { items: fileList } = files[0];
 
-  const rawNameLength = parseInt(storage.fileNameLength),
+  const rawNameLength = parseInt(storage.nameLength),
     fileNameLength = isNaN(rawNameLength) ? 8 : rawNameLength;
 
   for (const file of fileList) {
