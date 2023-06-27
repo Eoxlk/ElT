@@ -20,7 +20,7 @@ export default () => {
             <FormInput
                 title="Characters to use for filenames"
                 keyboardType="default"
-                placeholder="9"
+                placeholder="a-z A-z 0-9"
                 value={storage.nameChars.toString()}
                 onChange={(v: string) => storage.nameChars = v.replace(/^[a-zA-Z0-9]+$/, "")}
                 />
