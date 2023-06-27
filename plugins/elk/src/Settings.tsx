@@ -1,8 +1,22 @@
+import { ReactNative as RN } from "@vendetta/metro/common";
 import { Forms } from "@vendetta/ui/components";
-const { FormText } = Forms;
+import { useProxy } from "@vendetta/storage";
+import { storage } from "@vendetta/plugin";
 
-export default () => (
-    <FormText>
-        Hello, world!
-    </FormText>
-)
+const { FormInput } = Forms;
+
+export default () => {
+    useProxy(storage);
+
+    return (
+        <RN.ScrollView>
+            <FormInput
+                title="Length for filenames"
+                keyboardType="numeric"
+                placeholder="8"
+                value={storage.nameLength.toString()}
+                onChange={(v: string) => storage.nameLength = v.replace(/[^0-9]/g, "")}
+            />
+        </RN.ScrollView>
+    )
+}

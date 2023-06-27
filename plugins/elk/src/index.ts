@@ -1,13 +1,6 @@
-import { logger } from "@vendetta";
 import Settings from "./Settings";
+import './modules/randomizeFileName';
 
 export default {
-    onLoad: () => {
-        logger.log("Hello world!");
-        logger.log("Works!")
-    },
-    onUnload: () => {
-        logger.log("Goodbye, world.");
-    },
     settings: Settings,
 }
