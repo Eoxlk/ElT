@@ -3,7 +3,6 @@ import { before } from "@vendetta/patcher";
 import { storage } from "@vendetta/plugin";
 import randomString from "./import/rdmStr";
 
-// Default settings
 storage.nameLength ??= 8;
 
 const uploadModule = findByProps("uploadLocalFiles");
