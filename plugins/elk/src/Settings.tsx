@@ -11,7 +11,7 @@ export default () => {
     return (
         <RN.ScrollView>
             <FormInput
-                title="Lenght for filenames"
+                title="Length for filenames"
                 keyboardType="numeric"
                 placeholder="8"
                 value={storage.nameLength.toString()}
