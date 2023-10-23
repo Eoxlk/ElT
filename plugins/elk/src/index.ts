@@ -16,11 +16,11 @@ let unpatch: () => boolean;
 export default {
     settings: Settings,
     onLoad() {
-        const blockList = ["ic_thread_normal_24px", "ic_gift"].map(n => getAssetIDByName(n));
         unpatch = after("render", ChatInput.prototype, (_, ret) => {
-            const input = findInReactTree(ret, t => "forceAnimateButtons" in t.props && t.props.actions);
-            input.props.CanSendVoiceMessage = false;
-            input.props.hideGiftButton = true;
+            const input = findInReactTree(ret, t => "CanSendVoiceMessage" in t.props && t.props.actions);
+            if (input) {
+                input.props.CanSendVoiceMessage = false;
+            }
         });
     },
     onUnload: unpatch
