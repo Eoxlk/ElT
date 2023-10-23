@@ -16,11 +16,8 @@ let unpatch: () => boolean;
 export default {
     settings: Settings,
     onLoad() {
-        unpatch = after("render", ChatInput.prototype, (_, ret) => {
-            let input = findInReactTree(ret, t => "CanSendVoiceMessage" in t.props && t.props.actions);
-            if (input) {
-                input = false
-            }
+        unpatch = after("componentDidUpdate", ChatInput.prototype, function () {
+            this.props.CanSendVoiceMessage = false;
         });
     },
     onUnload: unpatch
