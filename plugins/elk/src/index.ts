@@ -18,9 +18,9 @@ export default {
     settings: Settings,
     onLoad() {
         unpatch = after(ChatInputWrapper.ChatInput.prototype, 'render', (_, res) => {
-            const comp: any = findInReactTree(res, r => typeof r.props?.hideGiftButton === 'boolean');
+            const comp: any = findInReactTree(res, r => typeof r.props?.canSendVoiceMessage === 'boolean');
             if (!comp) return;
-            comp.props.hideGiftButton = true;
+            comp.props.canSendVoiceMessage = false;
         });
     },
     onUnload: unpatch
