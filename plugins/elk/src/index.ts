@@ -17,8 +17,8 @@ let unpatch: () => boolean;
 export default {
     settings: Settings,
     onLoad() {
-        unpatch = after(ChatInputWrapper.ChatInput.prototype, 'render', (_, res) => {
-            const comp: any = findInReactTree(res, r => typeof r.props?.canSendVoiceMessage === 'boolean');
+        unpatch = after(ChatInputWrapper.ChatInput.prototype, 'render', (_, ret) => {
+            const comp: any = findInReactTree(ret, searchTree => typeof searchTree.props?.canSendVoiceMessage === 'boolean');
             if (!comp) return;
             comp.props.canSendVoiceMessage = false;
         });
