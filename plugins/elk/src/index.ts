@@ -17,9 +17,9 @@ export default {
     settings: Settings,
     onLoad() {
         unpatch = after("render", ChatInput.prototype, (_, ret) => {
-            const input = findInReactTree(ret, t => "CanSendVoiceMessage" in t.props && t.props.actions);
+            let input = findInReactTree(ret, t => "CanSendVoiceMessage" in t.props && t.props.actions);
             if (input) {
-                input.props.CanSendVoiceMessage = false;
+                input = false
             }
         });
     },
