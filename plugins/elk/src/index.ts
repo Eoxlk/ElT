@@ -17,7 +17,7 @@ let unpatch: () => boolean;
 export default {
     settings: Settings,
     onLoad() {
-        unpatch = patcher.after(ChatInputWrapper.ChatInput.prototype, 'render', (_, ret) => {
+        unpatch = patcher.after(ChatInputWrapper.ChatInput, 'render', (_, ret) => {
             const endpoint: any = findInReactTree(ret, r => typeof r.props?.hideGiftButton === 'boolean');
             if (!endpoint) return;
     
