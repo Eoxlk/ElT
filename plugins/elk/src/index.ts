@@ -9,7 +9,6 @@ import './modules/rdmFsName';
 storage.nameLength ??= 8;
 storage.nameChars ??= "abcdefghijklmnopqrstuvwxyz"
 
-const ChatInput = findByName("ChatInput");
 const ChatInputWrapper = findByProps("ChatInput");
 
 let unpatch: () => boolean;
